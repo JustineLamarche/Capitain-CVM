@@ -42,6 +42,18 @@ public class PlayerData
     /// </summary>
     private int _score;
     /// <summary>
+    /// Représente le niveau du joueur
+    /// </summary>
+    private int _niveau;
+    /// <summary>
+    /// Représente le nb de collectable grains
+    /// </summary>
+    private int _grains;
+    /// <summary>
+    /// Représente le nb de collectable poussins
+    /// </summary>
+    private int _poussins;
+    /// <summary>
     /// Liste des coffres ouverts dans le jeu
     /// </summary>
     private List<string> _chestOpenList;
@@ -49,6 +61,10 @@ public class PlayerData
     /// Représente le maximum d'énergie du personnage
     /// </summary>
     public const int MAX_ENERGIE = 4;
+    /// <summary>
+    /// Représente le maximum de niveau du personnage
+    /// </summary>
+    public const int MAX_NIVEAU = 3;
     /// <summary>
     /// Permet d'identifier les actions sur le UI à réaliser
     /// lors de la perte d'énergie
@@ -67,6 +83,9 @@ public class PlayerData
     public int Energie { get { return this._energie; } }
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
+    public int Grains { get { return this._grains; } }
+    public int Poussins { get { return this._poussins; } }
+    public int Niveau { get { return this._niveau; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
 
     public PlayerData()
@@ -81,12 +100,16 @@ public class PlayerData
         this.UIPerteVie = null;
         this.Gameover = null;
         this._chestOpenList = new List<string>();
+        this._grains = 0;
+        this._poussins = 0;
+        this._niveau = 1;
     }
 
     public PlayerData(int vie = 1, int energie = 2, int score = 0,
         float volumeGeneral = 0, float volumeMusique = 0, float volumeEffet = 0,
         System.Action uiPerteEnergie = null, System.Action uiPerteVie = null,
-        System.Action gameOver = null, List<string> ChestList = null)
+        System.Action gameOver = null, List<string> ChestList = null,
+        int grains = 0, int poussins = 0, int niveau = 1)
     {
         this._vie = vie;
         this._energie = energie;
@@ -100,6 +123,9 @@ public class PlayerData
         this._chestOpenList = new List<string>();
         if (ChestList != null)
             this._chestOpenList = ChestList;
+        this._grains = grains;
+        this._poussins = poussins;
+        this._niveau = niveau;
     }
 
     /// <summary>
@@ -165,6 +191,19 @@ public class PlayerData
     public void IncrScore(int gain = 1)
     {
         this._score += gain;
+    }
+
+    /// <summary>
+    /// Augmente le niveau du joueur
+    /// </summary>
+    /// <param name="gain">Point gagné</param>
+    public void IncrNiveau(int gain = 1)
+    {
+        this._niveau += gain;
+        if (this._niveau > MAX_NIVEAU)
+        {
+            this._niveau = MAX_NIVEAU;
+        }
     }
 
     /// <summary>

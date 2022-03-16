@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtonAction : MonoBehaviour
 {
+    public Button ButtonNiv2;
+    public Button ButtonNiv3;
     /// <summary>
     /// Permet d'afficher un panel transmis en paramètre
     /// </summary>
@@ -11,6 +13,16 @@ public class MainMenuButtonAction : MonoBehaviour
     public void AfficherPanel(GameObject PanelAOuvrir)
     {
         PanelAOuvrir.SetActive(true);
+
+        /// <summary>
+        /// Permet de cliquer sur le bouton si le niveau du joueur le permet
+        /// </summary>
+        if(GameManager.Instance.PlayerData.Niveau >= 2) {
+                ButtonNiv2.interactable = true;
+        }
+        else if(GameManager.Instance.PlayerData.Niveau >= 3) {
+                ButtonNiv3.interactable = true;
+        }
     }
 
     /// <summary>
@@ -29,6 +41,8 @@ public class MainMenuButtonAction : MonoBehaviour
     public void ChargerNiveau(string nom)
     {
         SceneManager.LoadScene(nom);
+
+
     }
 
     /// <summary>

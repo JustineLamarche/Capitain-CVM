@@ -9,6 +9,7 @@ public class FinDeNiveau : MonoBehaviour
         {
             Debug.Log("Félicitation, le niveau est terminé.");
             GameManager.Instance.SaveData();
+            GameManager.Instance.PlayerData.IncrNiveau();
 
             if(SceneManager.GetActiveScene().name == "Level1")
             {
