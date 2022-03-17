@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuButtonAction : MonoBehaviour
 {
@@ -18,10 +19,10 @@ public class MainMenuButtonAction : MonoBehaviour
         /// Permet de cliquer sur le bouton si le niveau du joueur le permet
         /// </summary>
         if(GameManager.Instance.PlayerData.Niveau >= 2) {
-                ButtonNiv2.interactable = true;
+            ButtonNiv2.interactable = true;
         }
-        else if(GameManager.Instance.PlayerData.Niveau >= 3) {
-                ButtonNiv3.interactable = true;
+        if(GameManager.Instance.PlayerData.Niveau >= 3) {
+            ButtonNiv3.interactable = true;
         }
     }
 
@@ -41,8 +42,6 @@ public class MainMenuButtonAction : MonoBehaviour
     public void ChargerNiveau(string nom)
     {
         SceneManager.LoadScene(nom);
-
-
     }
 
     /// <summary>
