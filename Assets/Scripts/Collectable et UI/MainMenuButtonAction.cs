@@ -7,6 +7,10 @@ public class MainMenuButtonAction : MonoBehaviour
 {
     public Button ButtonNiv2;
     public Button ButtonNiv3;
+
+    public TextMeshProUGUI TextCarte;
+    public TextMeshProUGUI TextPoussins;
+    public TextMeshProUGUI TextGrains;
     /// <summary>
     /// Permet d'afficher un panel transmis en paramètre
     /// </summary>
@@ -24,6 +28,10 @@ public class MainMenuButtonAction : MonoBehaviour
         if(GameManager.Instance.PlayerData.Niveau >= 3) {
             ButtonNiv3.interactable = true;
         }
+
+        TextCarte.text = GameManager.Instance.PlayerData.Carte.ToString();
+        TextPoussins.text = GameManager.Instance.PlayerData.Poussin.ToString();
+        TextGrains.text = GameManager.Instance.PlayerData.Grain.ToString();
     }
 
     /// <summary>

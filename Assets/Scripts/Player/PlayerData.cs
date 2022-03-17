@@ -38,6 +38,18 @@ public class PlayerData
     /// </summary>
     private int _energie;
     /// <summary>
+    /// Représente le nombre de collectables cartes
+    /// </summary>
+    private int _carte;
+    /// <summary>
+    /// Représente le nombre de collectables poussins
+    /// </summary>
+    private int _poussin;
+    /// <summary>
+    /// Représente le nombre de collectables grains
+    /// </summary>
+    private int _grain;
+    /// <summary>
     /// Représente le niveau (entre 1 et 3)
     /// </summary>
     private int _niveau;
@@ -75,6 +87,9 @@ public class PlayerData
     public int Energie { get { return this._energie; } }
     public int Vie { get { return this._vie; } }
     public int Niveau { get { return this._niveau; } }
+    public int Carte { get { return this._carte; } }
+    public int Grain { get { return this._grain; } }
+    public int Poussin { get { return this._poussin; } }
     public int Score { get { return this._score; } }
 
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
@@ -84,6 +99,9 @@ public class PlayerData
         this._vie = 0;
         this._energie = 0;
         this._score = 0;
+        this._carte = 0;
+        this._poussin = 0;
+        this._grain = 0;
         this._niveau = 1;
         this._volumeGeneral = 0;
         this._volumeMusique = 0;
@@ -97,7 +115,8 @@ public class PlayerData
     public PlayerData(int vie = 1, int energie = 2, int score = 0,
         float volumeGeneral = 0, float volumeMusique = 0, float volumeEffet = 0,
         System.Action uiPerteEnergie = null, System.Action uiPerteVie = null,
-        System.Action gameOver = null, List<string> ChestList = null)
+        System.Action gameOver = null, List<string> ChestList = null,
+        int niveau = 1, int carte = 0, int grain = 1, int poussin = 1)
     {
         this._vie = vie;
         this._energie = energie;
@@ -108,6 +127,9 @@ public class PlayerData
         this.UIPerteEnergie += uiPerteEnergie;
         this.UIPerteVie += uiPerteVie;
         this.Gameover += gameOver;
+        this._carte = carte;
+        this._poussin = poussin;
+        this._grain = grain;
         this._chestOpenList = new List<string>();
         if (ChestList != null)
             this._chestOpenList = ChestList;
