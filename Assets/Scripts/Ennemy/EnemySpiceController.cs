@@ -10,7 +10,7 @@ public class EnemySpiceController : MonoBehaviour
 
     public float _speed;
 
-    public GameObject _impactEffect;
+    public GameObject prefab;
 
     public PlayerMouvement player;
 
@@ -39,7 +39,7 @@ public class EnemySpiceController : MonoBehaviour
         _myrigidbody2D.velocity = new Vector2(_speed, _myrigidbody2D.velocity.y);
         _myrigidbody2D.angularVelocity = _rotationSpeed;
 
-        Instantiate(_impactEffect, transform.position, transform.rotation);
-        Destroy(this.gameObject);
+        Instantiate(prefab, transform.position, transform.rotation);
+
     }
 }

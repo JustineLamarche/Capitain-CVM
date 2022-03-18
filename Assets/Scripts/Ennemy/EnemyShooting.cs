@@ -13,15 +13,12 @@ public class EnemyShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.localScale.x < 0) {
-            Instantiate(spice, launchPoint.position, launchPoint.rotation);
-        }
-
+        Instantiate(spice, launchPoint.position, launchPoint.rotation);
     }
 }
