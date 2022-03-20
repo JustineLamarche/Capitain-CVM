@@ -7,9 +7,11 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
 
-    public GameObject spice;
+    [SerializeField]
+    private GameObject _spice;
 
-    public Transform launchPoint;
+    [SerializeField]
+    private Transform _launchPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Instantiate(spice, launchPoint.position, launchPoint.rotation);
+        Instantiate(_spice, _launchPoint.position, _launchPoint.rotation);
     }
 }

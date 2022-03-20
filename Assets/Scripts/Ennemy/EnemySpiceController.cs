@@ -7,27 +7,32 @@ using UnityEngine;
 // [RequireComponent(typeof(Rigidbody2D))]
 public class EnemySpiceController : MonoBehaviour
 {
-
+    [SerializeField]
     public float _speed;
 
-    public GameObject prefab;
+    [SerializeField]
+    public GameObject _prefab;
 
-    public PlayerMouvement player;
+    [SerializeField]
+    public PlayerMouvement _player;
 
+    [SerializeField]
     public float _rotationSpeed;
 
+    [SerializeField]
     public int _damageToGive;
 
+    [SerializeField]
     public Rigidbody2D _myrigidbody2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMouvement>();
+        _player = FindObjectOfType<PlayerMouvement>();
 
         _myrigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
     
-        if(player.transform.position.x < transform.position.x) {
+        if(_player.transform.position.x < transform.position.x) {
             _speed = -_speed;
             _rotationSpeed = -_rotationSpeed;
         }
@@ -39,7 +44,7 @@ public class EnemySpiceController : MonoBehaviour
         _myrigidbody2D.velocity = new Vector2(_speed, _myrigidbody2D.velocity.y);
         _myrigidbody2D.angularVelocity = _rotationSpeed;
 
-        Instantiate(prefab, transform.position, transform.rotation);
+        Instantiate(_prefab, transform.position, transform.rotation);
 
     }
 }

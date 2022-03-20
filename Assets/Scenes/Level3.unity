@@ -18596,8 +18596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
-  prefab: {fileID: 2817158086061116226, guid: 533165f95195ce8438654714bda068e4, type: 3}
-  player: {fileID: 0}
+  _prefab: {fileID: 0}
+  _player: {fileID: 0}
   _rotationSpeed: -360
   _damageToGive: 1
   _myrigidbody2D: {fileID: 0}
@@ -24470,8 +24470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea0af7de8ec404fb103e3480e726b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spice: {fileID: 2817158086061116226, guid: 533165f95195ce8438654714bda068e4, type: 3}
-  launchPoint: {fileID: 228152178}
+  _spice: {fileID: 2817158086061116226, guid: 533165f95195ce8438654714bda068e4, type: 3}
+  _launchPoint: {fileID: 228152178}
 --- !u!1 &1280310324
 GameObject:
   m_ObjectHideFlags: 0
